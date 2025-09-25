@@ -10,11 +10,18 @@ input,
 select,
 textarea {
     color: #222;
+    font-family: 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
 }
 
 html {
     font-size: 1em;
     line-height: 1.4;
+}
+
+body {
+    font-family: 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
+    direction: rtl;
+    text-align: right;
 }
 
 ::-moz-selection {
@@ -74,6 +81,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  direction: ltr; /* Keep birthday section LTR for design */
 }
 
 #birthday-section::before {
@@ -107,8 +115,11 @@ textarea {
   color: #ffffff;
   margin: 0 0 10px 0;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
   animation: celebration 2s ease-in-out infinite alternate;
+  text-align: center;
+  direction: ltr;
 }
 
 .birthday-name {
@@ -117,8 +128,11 @@ textarea {
   margin: 0 0 20px 0;
   text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
   font-weight: 900;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  font-family: 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
   animation: glow 2s ease-in-out infinite alternate;
+  text-align: center;
+  direction: ltr;
 }
 
 .psg-badge {
@@ -1054,12 +1068,6 @@ body {
   #score-board {
     padding: 6px 0 0 10px;
   }
-}
-footer {
-  text-align: center;
-  color: #fff;
-  margin: 20px 0;
-  font-size: 14px;
 }
 
 /* ==========================================================================
