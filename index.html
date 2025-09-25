@@ -311,21 +311,32 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 3rem;
                 border-radius: 10px;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.4);
             }
 
             .card-face.card-front {
                 background: #fff;
-                color: #001f5c;
                 transform: rotateY(180deg);
+                padding: 5px;
+                box-sizing: border-box;
+            }
+            
+            .card-face.card-front img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 6px;
             }
 
             .card-face.card-back {
-                background: linear-gradient(135deg, #d70021, #a30019);
-                border: 3px solid #001f5c;
-                color: white;
+                background: linear-gradient(135deg, #001f5c, #0066CC);
+                border: 3px solid #d70021;
+            }
+
+            .card-face.card-back img {
+                width: 70%;
+                height: auto;
             }
 
             .memory-card.flipped { transform: rotateY(180deg); }
@@ -393,7 +404,6 @@
                 .photo-slot { width: 115px; height: 140px; }
                 .game-board { gap: 10px; }
                 .memory-card { height: 90px; }
-                .memory-card .card-face { font-size: 2.2rem; }
                 .game-title { font-size: 1.5rem; }
                 .stat-box { font-size: 1rem; }
             }
@@ -431,7 +441,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="birthday-message">
                     <p>امیدواریم روز تولدت پر از شادی، گل و پیروزی باشه!</p>
                 </div>
@@ -616,18 +625,32 @@
                 let timerInterval = null, gameStarted = false, canFlip = true;
                 let flippedCards = [], matchedPairs = 0;
 
-                const cardSymbols = ['⚽', '⚽', '🏆', '🏆', '👕', '👕', '🥅', '🥅', '⭐', '⭐', '🏟️', '🏟️', '🎯', '🎯', '🔴', '🔴'];
+                // --- آدرس عکس بازیکنان را اینجا قرار دهید ---
+                const cardImages = [
+                    '1.jpg', '1.jpg',
+                '2.jpg', '2.jpg',
+            '3.jpg', '3.jpg',
+        '4.jpg', '4.jpg',
+    '5.jpg', '5.jpg',
+'6.jpg', '6.jpg',];
+
+                const psgLogoUrl = 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg';
+
 
                 function createBoard() {
                     gameBoard.innerHTML = '';
-                    const shuffledCards = [...cardSymbols].sort(() => Math.random() - 0.5);
-                    shuffledCards.forEach(symbol => {
+                    const shuffledCards = [...cardImages].sort(() => Math.random() - 0.5);
+                    shuffledCards.forEach(imageUrl => {
                         const card = document.createElement('div');
                         card.className = 'memory-card';
-                        card.dataset.symbol = symbol;
+                        card.dataset.imageUrl = imageUrl;
                         card.innerHTML = `
-                            <div class="card-face card-front">${symbol}</div>
-                            <div class="card-face card-back">⚽</div>`;
+                            <div class="card-face card-front">
+                                <img src="${imageUrl}" alt="بازیکن پاری سن ژرمن" draggable="false">
+                            </div>
+                            <div class="card-face card-back">
+                                <img src="${psgLogoUrl}" alt="لوگو PSG" draggable="false">
+                            </div>`;
                         gameBoard.appendChild(card);
                         card.addEventListener('click', () => flipCard(card));
                     });
@@ -652,7 +675,7 @@
 
                 function checkMatch() {
                     const [card1, card2] = flippedCards;
-                    if (card1.dataset.symbol === card2.dataset.symbol) {
+                    if (card1.dataset.imageUrl === card2.dataset.imageUrl) {
                         card1.classList.add('matched', 'celebrate');
                         card2.classList.add('matched', 'celebrate');
                         setTimeout(() => {
@@ -662,7 +685,7 @@
                         score += 10;
                         scoreElement.textContent = score;
                         matchedPairs++;
-                        if (matchedPairs === cardSymbols.length / 2) setTimeout(gameComplete, 500);
+                        if (matchedPairs === cardImages.length / 2) setTimeout(gameComplete, 500);
                     } else {
                         card1.classList.remove('flipped');
                         card2.classList.remove('flipped');
@@ -755,5 +778,8 @@
             })();
         </script>
     </body>
+    <footer style="text-align: center; padding: 15px; background: #001F5C; color: white; font-size: 0.9rem;">
+        <p>ساخته شده با ❤️ از طرف خاله زکیه و عمو هادی</p>
+    </footer>     
 </html>
 
