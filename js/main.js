@@ -18,7 +18,7 @@
 (function() {
 	// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 	// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-	// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+	// requestAnimationFrame polyfill by Erik MÃ¶ller. fixes from Paul Irish and Tino Zijdel
 	// MIT license
 
     var lastTime = 0;
@@ -425,8 +425,93 @@ function incrementScore() {
 
 // =======================================================================================================
 
-window.onclick = function() {
-  kickingProcess();
+// Photo Modal Functions
+var currentPhotoSrc = '';
+
+// Make functions globally available
+window.openPhotoModal = function(imageSrc, imageTitle) {
+  // Prevent event bubbling to avoid game clicks
+  if (event) event.stopPropagation();
+  
+  var modal = document.getElementById('photoModal');
+  var modalImage = document.getElementById('photoModalImage');
+  var modalTitle = document.getElementById('photoModalTitle');
+  
+  currentPhotoSrc = imageSrc;
+  modalImage.src = imageSrc;
+  modalTitle.textContent = imageTitle;
+  modal.style.display = 'block';
+  
+  // Prevent body scroll when modal is open
+  document.body.style.overflow = 'hidden';
+};
+
+window.closePhotoModal = function() {
+  var modal = document.getElementById('photoModal');
+  modal.style.display = 'none';
+  currentPhotoSrc = '';
+  
+  // Restore body scroll
+  document.body.style.overflow = 'auto';
+};
+
+window.downloadPhoto = function() {
+  if (!currentPhotoSrc) return;
+  
+  // Extract filename from path
+  var filename = currentPhotoSrc.split('/').pop();
+  
+  // Create temporary link element
+  var link = document.createElement('a');
+  link.href = currentPhotoSrc;
+  link.download = filename || 'danial-photo.jpg';
+  
+  // Trigger download
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+// Close modal when clicking outside of it
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('photoModal');
+  if (modal) {
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        closePhotoModal();
+      }
+    });
+  }
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closePhotoModal();
+    }
+  });
+});
+
+window.onclick = function(event) {
+  // Check if click is within birthday section - if so, ignore it
+  var birthdaySection = document.getElementById('birthday-section');
+  var target = event.target;
+  
+  // Check if the clicked element is inside birthday section
+  var isInsideBirthday = false;
+  var currentElement = target;
+  
+  while (currentElement != null) {
+    if (currentElement === birthdaySection) {
+      isInsideBirthday = true;
+      break;
+    }
+    currentElement = currentElement.parentElement;
+  }
+  
+  // Only process click if it's not in birthday section
+  if (!isInsideBirthday) {
+    kickingProcess();
+  }
 }
 
 // all the modals to be displayed

@@ -6,8 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Penalty Shootout</title>
-        <meta name="description" content="">
+        <title>Happy 8th Birthday Danial - PSG Penalty Shootout</title>
+        <meta name="description" content="Happy Birthday Danial - Paris Saint-Germain Penalty Shootout Game">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/normalize.min.css">
@@ -17,7 +17,6 @@
         <link rel="icon" type="image/png" href="img/favicons/zee-ball-16x16.png" sizes="16x16">
         <link rel="apple-touch-icon" sizes="152x152" type="image/png" href="img/favicons/zee-ball-43x43.png" sizes="43x43">
 
-
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -25,6 +24,85 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <!-- Birthday Section -->
+        <div id="birthday-section">
+            <div class="birthday-container">
+                <div class="birthday-header">
+                    <h1 class="birthday-title">🎉 تولدت هشت سالگیت مبارک  🎉</h1>
+                    <h2 class="birthday-name">DANIAL</h2>
+                    <div class="psg-badge">
+                        <div class="psg-colors">
+                            <div class="psg-stripe blue"></div>
+                            <div class="psg-stripe red"></div>
+                            <div class="psg-stripe blue"></div>
+                        </div>
+                        <p class="psg-text">PARIS SAINT-GERMAIN</p>
+                    </div>
+                </div>
+                
+                <div class="photo-frame">
+                    <div class="frame-border">
+                        <div class="frame-inner">
+                            <div class="photo-container">
+                                <div class="photo-slot" onclick="openPhotoModal('img/danial-photo1.png', 'Danial Photo 1')">
+                                    <img src="img/danial-photo1.png" alt="Danial Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-placeholder" style="display: none;">
+                                        <div class="birthday-icon">🎂</div>
+                                        <p>Photo 1</p>
+                                    </div>
+                                    <div class="photo-overlay">
+                                        <div class="zoom-icon">🔍</div>
+                                    </div>
+                                </div>
+                                <div class="photo-slot" onclick="openPhotoModal('img/danial-photo2.png', 'Danial Photo 2')">
+                                    <img src="img/danial-photo2.png" alt="Danial Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-placeholder" style="display: none;">
+                                        <div class="birthday-icon">⚽</div>
+                                        <p>Photo 2</p>
+                                    </div>
+                                    <div class="photo-overlay">
+                                        <div class="zoom-icon">🔍</div>
+                                    </div>
+                                </div>
+                                <div class="frame-caption">
+                                    <p>روز خاص دانیال </p>
+                                    <div class="football-icons">⚽ 🏆 ⚽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame-stand"></div>
+                </div>
+
+                <div class="birthday-message">
+                    <p class="birthday-wish">امیدوارم روز خاصت پر از شادی، گل‌ها و پیروزی‌ها باشد!</p>
+                    <p class="game-invitation">حالا بیا با بازی پنالتی مورد علاقه‌ات جشن بگیریم!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Modal -->
+        <div id="photoModal" class="photo-modal">
+            <div class="photo-modal-content">
+                <div class="photo-modal-header">
+                    <h3 id="photoModalTitle">Photo</h3>
+                    <span class="photo-modal-close" onclick="closePhotoModal()">&times;</span>
+                </div>
+                <div class="photo-modal-body">
+                    <img id="photoModalImage" src="" alt="Full Size Photo">
+                </div>
+                <div class="photo-modal-footer">
+                    <button class="download-btn" onclick="downloadPhoto()">
+                        📥 Download Photo
+                    </button>
+                    <button class="close-btn" onclick="closePhotoModal()">
+                        ✖️ Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Original Game Section -->
         <div id="zee-game">
 
           <!-- game objects -->
@@ -77,5 +155,10 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script> -->
+        <br>
     </body>
+    <footer>
+        <p>از طرف خاله زکیه و عمو هادی  - </p>
+        <p>From Aunti Zakieh & Uncle Hadi</p>
+    </footer>
 </html>

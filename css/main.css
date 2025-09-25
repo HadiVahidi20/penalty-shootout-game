@@ -1,4 +1,8 @@
-/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+.photo-overlay::after {
+    font-size: 0.6rem;
+  }  .photo-overlay::after {
+    font-size: 0.7rem;
+  }/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
 html,
 button,
@@ -58,7 +62,595 @@ textarea {
 
 
 /* ==========================================================================
-   Author's custom styles
+   Birthday Section Styles
+   ========================================================================== */
+
+#birthday-section {
+  background: linear-gradient(135deg, #001F5C 0%, #0066CC 50%, #001F5C 100%);
+  padding: 20px 10px;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#birthday-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+}
+
+.birthday-container {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.birthday-header {
+  margin-bottom: 30px;
+}
+
+.birthday-title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-weight: bold;
+  animation: celebration 2s ease-in-out infinite alternate;
+}
+
+.birthday-name {
+  font-size: 3rem;
+  color: #D70021;
+  margin: 0 0 20px 0;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  font-weight: 900;
+  letter-spacing: 3px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.psg-badge {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 15px 25px;
+  margin: 20px 0;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.psg-colors {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.psg-stripe {
+  flex: 1;
+}
+
+.psg-stripe.blue {
+  background-color: #001F5C;
+}
+
+.psg-stripe.red {
+  background-color: #D70021;
+}
+
+.psg-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #001F5C;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.photo-frame {
+  display: inline-block;
+  margin: 30px 0;
+  position: relative;
+}
+
+.frame-border {
+  background: linear-gradient(45deg, #D70021, #ffffff, #001F5C);
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  transform: perspective(500px) rotateX(5deg);
+}
+
+.frame-inner {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.photo-container {
+  width: 320px;
+  height: 500px;
+  background: linear-gradient(45deg, #f0f8ff, #e6f3ff);
+  border-radius: 8px;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.photo-slot {
+  width: 130px;
+  height: 180px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #001F5C;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-slot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 31, 92, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-slot:hover .photo-overlay {
+  opacity: 1;
+}
+
+.zoom-icon {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  animation: pulse 2s infinite;
+  margin-bottom: 5px;
+}
+
+.photo-overlay::after {
+  content: 'Click to view';
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #f0f8ff, #e6f3ff);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #001F5C;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.birthday-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  animation: bounce 2s infinite;
+}
+
+.photo-placeholder p {
+  color: #001F5C;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.frame-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+.frame-caption p {
+  color: #001F5C;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.football-icons {
+  font-size: 2rem;
+  color: #D70021;
+  animation: rotate 3s linear infinite;
+}
+
+.frame-stand {
+  width: 80px;
+  height: 35px;
+  background: linear-gradient(to bottom, #D70021, #001F5C);
+  margin: -10px auto 0;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.birthday-message {
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 25px;
+  margin: 30px 0;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.birthday-wish {
+  font-size: 18px;
+  color: #001F5C;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.game-invitation {
+  font-size: 16px;
+  color: #D70021;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes celebration {
+  0% { transform: scale(1) rotate(-1deg); }
+  100% { transform: scale(1.05) rotate(1deg); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 3px 3px 6px rgba(0,0,0,0.7); }
+  100% { text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 15px rgba(215,0,33,0.5); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Photo Modal Styles */
+.photo-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+}
+
+.photo-modal-content {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  margin: 2% auto;
+  padding: 0;
+  border-radius: 15px;
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.photo-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(45deg, #001F5C, #0066CC);
+  color: white;
+}
+
+.photo-modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.photo-modal-close {
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.photo-modal-close:hover {
+  color: #D70021;
+  transform: scale(1.1);
+}
+
+.photo-modal-body {
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-modal-body img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  object-fit: contain;
+}
+
+.photo-modal-footer {
+  padding: 15px 20px;
+  background: #f8f9ff;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.download-btn, .close-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.download-btn {
+  background: linear-gradient(45deg, #D70021, #ff1744);
+  color: white;
+}
+
+.download-btn:hover {
+  background: linear-gradient(45deg, #b71c1c, #D70021);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(215,0,33,0.4);
+}
+
+.close-btn {
+  background: linear-gradient(45deg, #001F5C, #0066CC);
+  color: white;
+}
+
+.close-btn:hover {
+  background: linear-gradient(45deg, #000051, #001F5C);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,31,92,0.4);
+}
+
+/* Mobile Responsive */
+@media only screen and (max-width: 768px) {
+  #birthday-section {
+    padding: 15px 5px;
+    min-height: auto;
+  }
+  
+  .birthday-container {
+    padding: 10px;
+  }
+  
+  .birthday-title {
+    font-size: 1.8rem;
+  }
+  
+  .birthday-name {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+  
+  .photo-container {
+    width: 280px;
+    height: 420px;
+  }
+  
+  .photo-slot {
+    width: 115px;
+    height: 160px;
+  }
+  
+  .photo-slot:hover {
+    transform: scale(1.03);
+  }
+  
+  .zoom-icon {
+    font-size: 1.5rem;
+  }
+  
+  .photo-modal-content {
+    margin: 5% auto;
+    max-width: 95%;
+    max-height: 85%;
+  }
+  
+  .photo-modal-body img {
+    max-height: 60vh;
+  }
+  
+  .download-btn, .close-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+  
+  .frame-caption p {
+    font-size: 14px;
+  }
+  
+  .birthday-icon {
+    font-size: 2rem;
+  }
+  
+  .photo-placeholder p {
+    font-size: 11px;
+  }
+  
+  .football-icons {
+    font-size: 1.5rem;
+  }
+  
+  .birthday-message {
+    padding: 20px 15px;
+  }
+  
+  .birthday-wish {
+    font-size: 16px;
+  }
+  
+  .game-invitation {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .birthday-title {
+    font-size: 1.5rem;
+  }
+  
+  .birthday-name {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .photo-container {
+    width: 240px;
+    height: 360px;
+    padding: 12px;
+  }
+  
+  .photo-slot {
+    width: 100px;
+    height: 140px;
+  }
+  
+  .photo-slot:hover {
+    transform: scale(1.02);
+  }
+  
+  .zoom-icon {
+    font-size: 1.3rem;
+  }
+  
+  .photo-modal-content {
+    margin: 10% auto;
+    max-width: 98%;
+    max-height: 80%;
+  }
+  
+  .photo-modal-header {
+    padding: 12px 15px;
+  }
+  
+  .photo-modal-header h3 {
+    font-size: 1rem;
+  }
+  
+  .photo-modal-close {
+    font-size: 1.5rem;
+  }
+  
+  .photo-modal-body {
+    padding: 15px;
+  }
+  
+  .photo-modal-body img {
+    max-height: 50vh;
+  }
+  
+  .photo-modal-footer {
+    padding: 12px 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .download-btn, .close-btn {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    min-width: 100px;
+  }
+  
+  .frame-caption p {
+    font-size: 12px;
+  }
+  
+  .birthday-icon {
+    font-size: 1.8rem;
+  }
+  
+  .photo-placeholder p {
+    font-size: 10px;
+  }
+  
+  .football-icons {
+    font-size: 1.2rem;
+  }
+  
+  .psg-badge {
+    padding: 12px 20px;
+  }
+  
+  .birthday-message {
+    padding: 15px 10px;
+  }
+}
+
+/* ==========================================================================
+   Author's custom styles (Original Game Styles)
    ========================================================================== */
 
 html {
@@ -67,7 +659,7 @@ html {
 
 body {
   background: #000;
-  height: 100%;
+  min-height: 100%;
 }
 
 #zee-ball {
@@ -86,17 +678,47 @@ body {
 }
 
 #zee-game {
-  margin: 0 auto 0 auto;
+  margin: 50px auto 0 auto;
   width: 810px;
   height: 525px;
   position: relative;
   background: url('../img/background.jpg') no-repeat top center transparent;
   cursor: pointer;
   overflow: hidden;
+}
 
-  /* center vertically on the screen */
-  top: 50%;
-  margin-top: -262.5px;
+/* Mobile responsiveness for the game */
+@media only screen and (max-width: 850px) {
+  #zee-game {
+    width: 95vw;
+    height: 60vw;
+    max-width: 810px;
+    max-height: 525px;
+    min-width: 320px;
+    min-height: 200px;
+    margin: 20px auto;
+    background-size: cover;
+  }
+  
+  #zee-ball {
+    width: 5vw;
+    height: 5vw;
+    max-width: 43px;
+    max-height: 43px;
+    min-width: 20px;
+    min-height: 20px;
+    top: 84%;
+    left: 48%;
+  }
+  
+  #kickAnimation {
+    top: 45%;
+    left: 33%;
+    width: 18vw;
+    height: 32vw;
+    max-width: 150px;
+    max-height: 270px;
+  }
 }
 
 #vertical-direction {
@@ -382,6 +1004,62 @@ body {
   width: 800px; height: 800px;
   top: 0; left: 5px;
   background: url('../img/like-gate.jpg') no-repeat 0 0 #fff;
+}
+
+/* Mobile responsive adjustments for game controls */
+@media only screen and (max-width: 850px) {
+  #vertical-direction,
+  #horizontal-direction,
+  #power-level,
+  .small-ball,
+  .goal-keeper,
+  .modal,
+  #score-board {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+  
+  .modal {
+    font-size: 18px;
+    width: 220px;
+    left: 15%;
+  }
+  
+  #score-board {
+    padding: 6px 0 0 20px;
+  }
+  
+  #score-board li img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #vertical-direction,
+  #horizontal-direction,
+  #power-level,
+  .small-ball,
+  .goal-keeper {
+    transform: scale(0.6);
+  }
+  
+  .modal {
+    font-size: 16px;
+    width: 180px;
+    padding: 20px 15px;
+    left: 10%;
+  }
+  
+  #score-board {
+    padding: 6px 0 0 10px;
+  }
+}
+footer {
+  text-align: center;
+  color: #fff;
+  margin: 20px 0;
+  font-size: 14px;
 }
 
 /* ==========================================================================
