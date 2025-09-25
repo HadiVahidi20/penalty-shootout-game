@@ -22,6 +22,9 @@ body {
     font-family: 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
     direction: rtl;
     text-align: right;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 ::-moz-selection {
@@ -251,11 +254,13 @@ textarea {
 }
 
 .photo-overlay::after {
-  content: 'Click to view';
+  content: 'برای مشاهده کلیک کنید';
   color: white;
   font-size: 0.8rem;
-  font-weight: bold;
+  font-weight: 500;
+  font-family: 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
   text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+  direction: rtl;
 }
 
 .photo-slot img {
@@ -699,6 +704,8 @@ body {
   background: url('../img/background.jpg') no-repeat top center transparent;
   cursor: pointer;
   overflow: hidden;
+  direction: ltr; /* Keep game LTR */
+  text-align: left;
 }
 
 /* Mobile responsiveness for the game */
@@ -872,7 +879,8 @@ body {
   border-radius: 10px 10px 10px 10px;
 
   /* font styles */
-  font: 25px sans-serif;
+  font: 500 25px 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
+  direction: rtl;
 }
 
 .modal.active {
@@ -1019,6 +1027,13 @@ body {
   top: 0; left: 5px;
   background: url('../img/like-gate.jpg') no-repeat 0 0 #fff;
 }
+footer {
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font: 14px 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
+  color: #ffffff;
+}
+
 
 /* Mobile responsive adjustments for game controls */
 @media only screen and (max-width: 850px) {
@@ -1034,7 +1049,7 @@ body {
   }
   
   .modal {
-    font-size: 18px;
+    font: 500 18px 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
     width: 220px;
     left: 15%;
   }
@@ -1059,7 +1074,7 @@ body {
   }
   
   .modal {
-    font-size: 16px;
+    font: 500 16px 'Vazirmatn', 'Tahoma', 'Persian', 'Arial', sans-serif;
     width: 180px;
     padding: 20px 15px;
     left: 10%;
